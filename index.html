@@ -322,6 +322,8 @@
                 transform: scale(1.02);
             }
         }
+
+        @keyframes offer-glow {
             0%, 100% {
                 opacity: 0.8;
                 transform: scale(1);
@@ -429,6 +431,7 @@
             justify-content: center;
             font-size: 2.5rem;
             color: rgba(255, 255, 255, 0.8);
+            overflow: hidden;
         }
 
         .card-image::after {
@@ -440,6 +443,53 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(1px);
+            z-index: 2;
+        }
+
+        /* Image Carousel Styles */
+        .image-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            z-index: 1;
+        }
+
+        .carousel-track {
+            display: flex;
+            animation: scroll-loop 20s linear infinite;
+            width: calc(200% + 20px);
+        }
+
+        .carousel-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            flex-shrink: 0;
+            margin-right: 10px;
+            border-radius: 8px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-image:hover {
+            opacity: 1;
+        }
+
+        @keyframes scroll-loop {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Pause animation on hover */
+        .card-image:hover .carousel-track {
+            animation-play-state: paused;
         }
 
         .preview-badge {
@@ -610,6 +660,11 @@
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
             }
+
+            .carousel-image {
+                width: 150px;
+                height: 150px;
+            }
         }
 
         @media (min-width: 769px) {
@@ -693,7 +748,35 @@
         
         <div class="content-grid">
             <div class="content-card">
-                <div class="card-image">📹</div>
+                <div class="card-image">
+                    <div class="image-carousel">
+                        <div class="carousel-track">
+                            <!-- First set of images -->
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXx7jrUjHlqn2gWmn9ydgC7nD8KkwJm2YugImpXJ4JWn6_g2oJ9TlMDN48geKQlVltaFsXhSu2BJAIkmGCGC6Uk37M84Xb8NVcoa3Q0cg_o1CM7gbbNGMPfO5e2XDdpcPHahXbpN9426xNeMU-DMkM82DoL9-NtyJXAYoDTqge0MZS4cyexblERpYhRxo/s320/Screenshot_2025-08-25-15-43-13-227_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 1">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_260MG57RdjDlmo3lMYga_jt2BJ2oR-FMB6GBBCZdn8jriXL9Sn2HwjKRZksckwRM0m13qUIva2d-x7VO1tQmI5uFDXMEAUbLzE3pybuAQaNQOMazKx4UgnSoicZMdPcVeC-WWSuvAsmOWwEZsli9_RU2RDrsC4VCv04VRwz9iEOPNj-DfRmI5OExgwA/s320/Screenshot_2025-08-25-15-44-30-559_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 2">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgv9IusrRgYsuGOXra-wM47q531_IUeiOHjl_tsbb2y48kmSanCw6QvqMLhyphenhyphendn_Kg9Bu13teyHnadnFFSFSGmdZv-cIy2fzAhIzRuLeZopGvJ_2WwYpFALsGHGSo8Jv8YkAqeRU3MbhV4Nq4OzHn3vHvXRPUhb5b5nNp_xVnvBnYeWox1T5RB1To06j8PE/s320/Screenshot_2025-08-25-15-43-56-617_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 3">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgLpuCwcNkLv0EA5wf7BzFjZaNfnAXFqAPl0kWSzHSvbDja2uXuBzXdkteJOfyaVClhy6Mbau-xT_1YYzXwicxCd-cQYygf5VbSmK_Irr5xq97Fav2cVlurao1I9zQTT6GjKO97S1Nf0STC5NXIERW6l9_3BRn6YZRPbRgL2MV8b9CFj0aIBTJkfe6AvE/s320/Screenshot_2025-08-25-15-45-08-209_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 4">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3R7UPyFKG_X2uHiAz9nkULQOWOA8takXCJlY-0ZiAVdh2DOkxWWqb4XDBsu8PEILp4knYEEUr5S37gPeX1EGrghQU3CK5AxVrnU8fwoKixKirtg4qVRG-YUeCoLPI6lpAHSvs8cNcsnMIgiLBEVPhuwPbEiF8ZanCi9gSjMqCdGl2MWy1dSi4r0Rh1tI/s320/Screenshot_2025-08-25-15-45-36-005_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 5">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh98wz-l6kTVVbfQL_ejbBIMVuKbahvTZDY1M7sn5fBn4G4GMI7xzIbDqxA98UvlRJpQEiyJv_uc3WZzQoF1L3_AFSpjCaQSnPf3PnKuNyyLmPLcc2NJw5JaIJkL9zljzOx4BLYrXxPsjWyWaFQmPi94IiPLDqN7gnlNEv8gdShjRLnBBXb7nKdzwLgPI/s320/Screenshot_2025-08-25-15-46-02-079_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 6">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvu-OZugrnj13wuBQi3Q_xtLOHEsTaa81g3Oq1MldTVmtVPborirxpqwQFGHaaTyiBTO-PwO2GNU6kxicT_CCRXkOqz2_VVit0w25thsXQCAX_59GVRDfKSeNvHTjF_x31pJOB_iRf2AU36Kjf7XYMCoyRl9FBhcs3lt6VwCQ2h7qFHsLqVcDlq4Jju_s/s320/Screenshot_2025-08-25-15-46-32-275_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 7">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNU57JgZjwOJmJ-J3BBF-PSl_YLReaOB8fB1Vm4qTkkswgqIL3Z7W4ahRvFwIssj9iNVPPkWGKNKOwwUCJ7Es-FStH7Z7SVcETMBouYFgn8Eo5STk7KJERaE_yTug2OziWOjEo9pNfJ2JOVYE-NuLGQmjeSw94tyBLrhoaH6_nBEbANh1X-0rmdu5_nN0/s320/Screenshot_2025-08-25-15-47-20-443_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 8">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnKewsOhEwhH3ycUo93EAb7jiSBDAVskZuKF2oWTh4GcnSiGbUVsQE2-XAR4IxUTXvLYk2KQYcieESSw4pGsNQrYfI-aLjtBO9cqiuXYeBQ8CTyYN_JbwpLN-cTXNLBAMzUBgbSQWQ6Tunl1vHaiPwE_YmzIGSdzj9Mc4-YagJYnHbpB0VlKXE6LFmTM4/s320/Screenshot_2025-08-25-15-49-16-588_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 9">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitDRQbfkcL-hEZeop4Aqu-XgFHPyST013e1Nvjg-GHOIKpP2w32rrxFww8EwJLN3QPuqkuSMqoKWUnDjsI6FLtK2BPxqSBupi-KYpcM0F3zvMJtgFMoCEii-t7980je0odDu_plLLleXQ-wk73LCItd1ySAcX8yxRm5Fx41YDG2vlKcIt1yN4O3YcL_7I/s320/Screenshot_2025-08-25-15-48-03-395_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 10">
+                            
+                            <!-- Duplicate set for seamless loop -->
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXx7jrUjHlqn2gWmn9ydgC7nD8KkwJm2YugImpXJ4JWn6_g2oJ9TlMDN48geKQlVltaFsXhSu2BJAIkmGCGC6Uk37M84Xb8NVcoa3Q0cg_o1CM7gbbNGMPfO5e2XDdpcPHahXbpN9426xNeMU-DMkM82DoL9-NtyJXAYoDTqge0MZS4cyexblERpYhRxo/s320/Screenshot_2025-08-25-15-43-13-227_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 1">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_260MG57RdjDlmo3lMYga_jt2BJ2oR-FMB6GBBCZdn8jriXL9Sn2HwjKRZksckwRM0m13qUIva2d-x7VO1tQmI5uFDXMEAUbLzE3pybuAQaNQOMazKx4UgnSoicZMdPcVeC-WWSuvAsmOWwEZsli9_RU2RDrsC4VCv04VRwz9iEOPNj-DfRmI5OExgwA/s320/Screenshot_2025-08-25-15-44-30-559_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 2">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgv9IusrRgYsuGOXra-wM47q531_IUeiOHjl_tsbb2y48kmSanCw6QvqMLhyphenhyphendn_Kg9Bu13teyHnadnFFSFSGmdZv-cIy2fzAhIzRuLeZopGvJ_2WwYpFALsGHGSo8Jv8YkAqeRU3MbhV4Nq4OzHn3vHvXRPUhb5b5nNp_xVnvBnYeWox1T5RB1To06j8PE/s320/Screenshot_2025-08-25-15-43-56-617_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 3">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgLpuCwcNkLv0EA5wf7BzFjZaNfnAXFqAPl0kWSzHSvbDja2uXuBzXdkteJOfyaVClhy6Mbau-xT_1YYzXwicxCd-cQYygf5VbSmK_Irr5xq97Fav2cVlurao1I9zQTT6GjKO97S1Nf0STC5NXIERW6l9_3BRn6YZRPbRgL2MV8b9CFj0aIBTJkfe6AvE/s320/Screenshot_2025-08-25-15-45-08-209_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 4">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3R7UPyFKG_X2uHiAz9nkULQOWOA8takXCJlY-0ZiAVdh2DOkxWWqb4XDBsu8PEILp4knYEEUr5S37gPeX1EGrghQU3CK5AxVrnU8fwoKixKirtg4qVRG-YUeCoLPI6lpAHSvs8cNcsnMIgiLBEVPhuwPbEiF8ZanCi9gSjMqCdGl2MWy1dSi4r0Rh1tI/s320/Screenshot_2025-08-25-15-45-36-005_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 5">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh98wz-l6kTVVbfQL_ejbBIMVuKbahvTZDY1M7sn5fBn4G4GMI7xzIbDqxA98UvlRJpQEiyJv_uc3WZzQoF1L3_AFSpjCaQSnPf3PnKuNyyLmPLcc2NJw5JaIJkL9zljzOx4BLYrXxPsjWyWaFQmPi94IiPLDqN7gnlNEv8gdShjRLnBBXb7nKdzwLgPI/s320/Screenshot_2025-08-25-15-46-02-079_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 6">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvu-OZugrnj13wuBQi3Q_xtLOHEsTaa81g3Oq1MldTVmtVPborirxpqwQFGHaaTyiBTO-PwO2GNU6kxicT_CCRXkOqz2_VVit0w25thsXQCAX_59GVRDfKSeNvHTjF_x31pJOB_iRf2AU36Kjf7XYMCoyRl9FBhcs3lt6VwCQ2h7qFHsLqVcDlq4Jju_s/s320/Screenshot_2025-08-25-15-46-32-275_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 7">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNU57JgZjwOJmJ-J3BBF-PSl_YLReaOB8fB1Vm4qTkkswgqIL3Z7W4ahRvFwIssj9iNVPPkWGKNKOwwUCJ7Es-FStH7Z7SVcETMBouYFgn8Eo5STk7KJERaE_yTug2OziWOjEo9pNfJ2JOVYE-NuLGQmjeSw94tyBLrhoaH6_nBEbANh1X-0rmdu5_nN0/s320/Screenshot_2025-08-25-15-47-20-443_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 8">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnKewsOhEwhH3ycUo93EAb7jiSBDAVskZuKF2oWTh4GcnSiGbUVsQE2-XAR4IxUTXvLYk2KQYcieESSw4pGsNQrYfI-aLjtBO9cqiuXYeBQ8CTyYN_JbwpLN-cTXNLBAMzUBgbSQWQ6Tunl1vHaiPwE_YmzIGSdzj9Mc4-YagJYnHbpB0VlKXE6LFmTM4/s320/Screenshot_2025-08-25-15-49-16-588_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 9">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitDRQbfkcL-hEZeop4Aqu-XgFHPyST013e1Nvjg-GHOIKpP2w32rrxFww8EwJLN3QPuqkuSMqoKWUnDjsI6FLtK2BPxqSBupi-KYpcM0F3zvMJtgFMoCEii-t7980je0odDu_plLLleXQ-wk73LCItd1ySAcX8yxRm5Fx41YDG2vlKcIt1yN4O3YcL_7I/s320/Screenshot_2025-08-25-15-48-03-395_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 10">
+                        </div>
+                    </div>
+                </div>
                 <div class="preview-badge">Preview</div>
             </div>
         </div>
