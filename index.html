@@ -35,7 +35,6 @@
             color: var(--text-white);
             line-height: 1.6;
             overflow-x: hidden;
-            min-height: 100vh;
         }
 
         /* Top Navigation */
@@ -471,14 +470,14 @@
             flex-shrink: 0;
             margin-right: 12px;
             border-radius: 12px;
-            opacity: 0.3;
+            opacity: 0.5;
             transition: opacity 0.4s ease;
-            filter: blur(6px);
+            filter: blur(2px);
         }
 
         .carousel-image:hover {
-            opacity: 0.6;
-            filter: blur(2px);
+            opacity: 0.8;
+            filter: blur(0px);
         }
 
         @keyframes scroll-loop {
@@ -575,7 +574,6 @@
             padding: 3rem 2rem 2rem;
             border-top: 1px solid var(--border);
             text-align: center;
-            margin-top: 10rem;
         }
 
         .footer-links {
@@ -657,11 +655,6 @@
                 font-size: 2rem;
             }
             
-            .footer {
-                margin-top: 6rem;
-                padding-bottom: 4rem;
-            }
-            
             .footer-links {
                 gap: 1.5rem;
             }
@@ -674,10 +667,6 @@
             .carousel-image {
                 width: 150px;
                 height: 150px;
-            }
-
-            body {
-                padding-bottom: 2rem;
             }
         }
 
@@ -711,17 +700,6 @@
             0%, 20% { opacity: 0; }
             50% { opacity: 1; }
             100% { opacity: 0; }
-        }
-
-        /* Additional bottom spacing */
-        .page-bottom-spacer {
-            height: 8rem;
-        }
-
-        @media (max-width: 768px) {
-            .page-bottom-spacer {
-                height: 6rem;
-            }
         }
     </style>
 </head>
@@ -777,6 +755,11 @@
                     <div class="image-carousel">
                         <div class="carousel-track">
                             <!-- Mixed old and new images -->
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXx7jrUjHlqn2gWmn9ydgC7nD8KkwJm2YugImpXJ4JWn6_g2oJ9TlMDN48geKQlVltaFsXhSu2BJAIkmGCGC6Uk37M84Xb8NVcoa3Q0cg_o1CM7gbbNGMPfO5e2XDdpcPHahXbpN9426xNeMU-DMkM82DoL9-NtyJXAYoDTqge0MZS4cyexblERpYhRxo/s320/Screenshot_2025-08-25-15-43-13-227_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 1">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQcF0NiPoPvkcbf-peKyjyhJD3Seo-GI4iZptv0qdFUJIzRP5EYOue3_9PFjUkygYgPmLmwk9dB4rdDNtaTghiNBxTN5NDoG-Sb3JhxNjkhqXGKbl8Qt900Ipvhla01rUnVeXECVMVoPzXy6fHB3KFjEec02jboedkLzUcIbY-wPfx5PHb465HSxdO0-E/s320/IMG_20250825_235541.jpg" class="carousel-image" alt="Preview 2">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_260MG57RdjDlmo3lMYga_jt2BJ2oR-FMB6GBBCZdn8jriXL9Sn2HwjKRZksckwRM0m13qUIva2d-x7VO1tQmI5uFDXMEAUbLzE3pybuAQaNQOMazKx4UgnSoicZMdPcVeC-WWSuvAsmOWwEZsli9_RU2RDrsC4VCv04VRwz9iEOPNj-DfRmI5OExgwA/s320/Screenshot_2025-08-25-15-44-30-559_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 3">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy5EZZo_JHoNGPz-6_J1xgf2joocjjm7O3BngpJKNG1UYmin_FgetwH1ZY2t9vATZXMRUC3iCUp5lBKCc2osKqrKVtGkgfP_MEz1osWibxBUjNDzR1PRdMUqvT7a5KudTadW5n0zgRgXesaEJ6Ns0iuWsj-y8xwBOFP43-Q-2BH1m8NPfMQuC-QCcujoQ/s320/Screenshot_2025-08-25-23-52-44-337_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 4">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgv9IusrRgYsuGOXra-wM47q531_IUeiOHjl_tsbb2y48kmSanCw6QvqMLhyphenhyphendn_Kg9Bu13teyHnadnFFSFSGmdZv-cIy2fzAhIzRuLeZopGvJ_2WwYpFALsGHGSo8Jv8YkAqeRU3MbhV4Nq4OzHn3vHvXRPUhb5b5nNp_xVnvBnYeWox1T5RB1To06j8PE/s320/Screenshot_2025-08-25-15-43-56-617_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 5">
                             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpC1RhD6Ix__7Xz_RxqRVTQq9zKcKudKO4q8cZI7njG8q-FG7JgRppcUJdAG0TDRsBe9tYKFLa00c5uQCuDrPW6BMIitGss98Dw192dlDZJz-rKwAlHsXXNYe337aPrBoeRqb13LWMSWAHMM05EsdeOq24HkQNofdX2hXXK9_3kF4423-cNnWM8mH7E4g/s320/Screenshot_2025-08-25-23-52-11-644_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 6">
                             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgLpuCwcNkLv0EA5wf7BzFjZaNfnAXFqAPl0kWSzHSvbDja2uXuBzXdkteJOfyaVClhy6Mbau-xT_1YYzXwicxCd-cQYygf5VbSmK_Irr5xq97Fav2cVlurao1I9zQTT6GjKO97S1Nf0STC5NXIERW6l9_3BRn6YZRPbRgL2MV8b9CFj0aIBTJkfe6AvE/s320/Screenshot_2025-08-25-15-45-08-209_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 7">
                             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7YvO-zXELeiTilMnZC1AzxEgX-kFhO5dO9a298ycbsqnS60BB8BnV6Bri8cJllpuhyphenhyphenDyv7vcoWp5hbQAd0nyO6TzL_yhVPEbwIwXpqoghyphenhyphenU991PXEZ6DaF5RDBn8buHRlKYj744qzEbqKE9SEo2_2BCtx5yRRKlqmq9lgxpLhT-B6tm5Cd6cmevwpAjw/s320/Screenshot_2025-08-25-23-51-35-395_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 8">
@@ -849,8 +832,8 @@
         </div>
     </section>
 
-    <!-- Additional spacing -->
-    <div class="page-bottom-spacer"></div>
+    <!-- Spacer -->
+    <div style="height: 5rem;"></div>
 
     <!-- Footer -->
     <footer class="footer" id="contact">
@@ -970,9 +953,4 @@
         });
     </script>
 </body>
-</html>xl/AVvXsEgXx7jrUjHlqn2gWmn9ydgC7nD8KkwJm2YugImpXJ4JWn6_g2oJ9TlMDN48geKQlVltaFsXhSu2BJAIkmGCGC6Uk37M84Xb8NVcoa3Q0cg_o1CM7gbbNGMPfO5e2XDdpcPHahXbpN9426xNeMU-DMkM82DoL9-NtyJXAYoDTqge0MZS4cyexblERpYhRxo/s320/Screenshot_2025-08-25-15-43-13-227_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 1">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQcF0NiPoPvkcbf-peKyjyhJD3Seo-GI4iZptv0qdFUJIzRP5EYOue3_9PFjUkygYgPmLmwk9dB4rdDNtaTghiNBxTN5NDoG-Sb3JhxNjkhqXGKbl8Qt900Ipvhla01rUnVeXECVMVoPzXy6fHB3KFjEec02jboedkLzUcIbY-wPfx5PHb465HSxdO0-E/s320/IMG_20250825_235541.jpg" class="carousel-image" alt="Preview 2">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_260MG57RdjDlmo3lMYga_jt2BJ2oR-FMB6GBBCZdn8jriXL9Sn2HwjKRZksckwRM0m13qUIva2d-x7VO1tQmI5uFDXMEAUbLzE3pybuAQaNQOMazKx4UgnSoicZMdPcVeC-WWSuvAsmOWwEZsli9_RU2RDrsC4VCv04VRwz9iEOPNj-DfRmI5OExgwA/s320/Screenshot_2025-08-25-15-44-30-559_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 3">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy5EZZo_JHoNGPz-6_J1xgf2joocjjm7O3BngpJKNG1UYmin_FgetwH1ZY2t9vATZXMRUC3iCUp5lBKCc2osKqrKVtGkgfP_MEz1osWibxBUjNDzR1PRdMUqvT7a5KudTadW5n0zgRgXesaEJ6Ns0iuWsj-y8xwBOFP43-Q-2BH1m8NPfMQuC-QCcujoQ/s320/Screenshot_2025-08-25-23-52-44-337_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 4">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgv9IusrRgYsuGOXra-wM47q531_IUeiOHjl_tsbb2y48kmSanCw6QvqMLhyphenhyphendn_Kg9Bu13teyHnadnFFSFSGmdZv-cIy2fzAhIzRuLeZopGvJ_2WwYpFALsGHGSo8Jv8YkAqeRU3MbhV4Nq4OzHn3vHvXRPUhb5b5nNp_xVnvBnYeWox1T5RB1To06j8PE/s320/Screenshot_2025-08-25-15-43-56-617_com.android.chrome-edit.jpg" class="carousel-image" alt="Preview 5">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2
+</html>
