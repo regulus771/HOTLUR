@@ -732,7 +732,7 @@
     <section class="hero" id="home">
         <h1>HotLure</h1>
         <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; background: linear-gradient(135deg, #FF0057, #FF7A00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); filter: drop-shadow(0 2px 10px rgba(255, 0, 87, 0.3));">Unlock Exclusive Fun Now 🔥</h2>
-        <button class="hero-cta" onclick="scrollToSection('videos')">Explore Now</button>
+        <button class="hero-cta" onclick="openLocker('hero')">Explore Now</button>
         
         <!-- Offer Banner -->
         <div class="offer-banner" style="margin-top: 2rem;">
@@ -745,12 +745,12 @@
         <div class="section-header">
             <h2 class="section-title">Exclusive Video</h2>
             <p class="section-subtitle">
-                <span class="video-icon">Fresh drops you can preview first 🎬</span>
+                <span class="video-icon" onclick="openLocker('video_preview')" style="cursor: pointer;">Fresh drops you can preview first 🎬</span>
             </p>
         </div>
         
         <div class="content-grid">
-            <div class="content-card">
+            <div class="content-card" onclick="openLocker('video_card')">
                 <div class="card-image">
                     <div class="image-carousel">
                         <div class="carousel-track">
@@ -803,7 +803,7 @@
         </div>
         
         <div class="section-cta">
-            <button class="cta-button" onclick="handleSmartLink('videos')">
+            <button class="cta-button" onclick="openLocker('video_watch')">
                 🎬 Watch Now
             </button>
         </div>
@@ -814,19 +814,19 @@
         <div class="section-header">
             <h2 class="section-title">Interactive Games</h2>
             <p class="section-subtitle">
-                <span class="game-icon">Pick and play instantly ⚡</span>
+                <span class="game-icon" onclick="openLocker('game_preview')" style="cursor: pointer;">Pick and play instantly ⚡</span>
             </p>
         </div>
         
         <div class="content-grid">
-            <div class="content-card">
+            <div class="content-card" onclick="openLocker('game_card')">
                 <div class="card-image">🎮</div>
                 <div class="preview-badge">Play</div>
             </div>
         </div>
         
         <div class="section-cta">
-            <button class="cta-button" onclick="handleSmartLink('games')">
+            <button class="cta-button" onclick="openLocker('game_play')">
                 ⚡ Play More
             </button>
         </div>
@@ -847,6 +847,27 @@
     </footer>
 
     <script>
+        // Locker URL
+        const LOCKER_URL = 'https://installchecker.com/cl/i/34olpv';
+
+        // Function to open locker popup
+        function openLocker(source) {
+            // Create popup window with locker
+            const popup = window.open(
+                LOCKER_URL,
+                'lockerPopup',
+                'width=800,height=600,scrollbars=yes,resizable=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,copyhistory=no'
+            );
+            
+            // Focus the popup window
+            if (popup) {
+                popup.focus();
+            }
+            
+            // Optional: Track the source for analytics
+            console.log(`Locker opened from: ${source}`);
+        }
+
         // Toggle mobile menu
         function toggleMenu() {
             const hamburger = document.querySelector('.hamburger');
@@ -876,27 +897,6 @@
             }
         }
 
-        // Handle smart link clicks with tracking
-        function handleSmartLink(source) {
-            // Add loading state
-            const button = event.target.closest('.cta-button') || event.target.closest('.hero-cta');
-            const originalText = button.textContent;
-            button.classList.add('loading');
-            button.textContent = 'Loading';
-            
-            // Simulate redirect after brief delay
-            setTimeout(() => {
-                // In real implementation, redirect to your smartlink with tracking
-                console.log(`Redirecting to smartlink with source: ${source}`);
-                // window.location.href = `your-smartlink.com?src=${source}`;
-                
-                // For demo, just reset button
-                button.classList.remove('loading');
-                button.textContent = originalText;
-                alert(`Demo: Would redirect to smartlink with source: ${source}`);
-            }, 1500);
-        }
-
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -905,14 +905,6 @@
             } else {
                 navbar.style.background = 'rgba(15, 15, 35, 0.95)';
             }
-        });
-
-        // Card click handlers
-        document.querySelectorAll('.content-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const section = this.closest('.content-section').id;
-                handleSmartLink(section);
-            });
         });
 
         // Smooth scroll for nav links
