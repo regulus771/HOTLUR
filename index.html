@@ -701,6 +701,62 @@
             50% { opacity: 1; }
             100% { opacity: 0; }
         }
+
+        /* Locker popup (in-page) */
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            animation: fadeIn 0.2s ease-out;
+        }
+        .popup-overlay.show { display: flex; }
+
+        .popup-content {
+            position: relative;
+            width: min(92vw, 720px);
+            height: min(82vh, 560px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.06);
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 20px;
+            display: grid;
+            place-items: center;
+            transition: 0.2s;
+            z-index: 1;
+        }
+        .popup-close:hover {
+            background: rgba(255,255,255,0.12);
+            color: var(--text-white);
+            border-color: var(--primary-red);
+        }
+
+        .popup-iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -835,6 +891,14 @@
     <!-- Spacer -->
     <div style="height: 5rem;"></div>
 
+    <!-- Locker Popup (in-page) -->
+    <div id="lockerOverlay" class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeLocker()" aria-label="Close">×</button>
+            <iframe id="lockerFrame" class="popup-iframe" src="" allow="clipboard-write; autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer" id="contact">
         <div class="footer-links">
@@ -850,23 +914,34 @@
         // Locker URL
         const LOCKER_URL = 'https://installchecker.com/cl/i/34olpv';
 
-        // Function to open locker popup
+        // In-page locker popup
         function openLocker(source) {
-            // Create popup window with locker
-            const popup = window.open(
-                LOCKER_URL,
-                'lockerPopup',
-                'width=800,height=600,scrollbars=yes,resizable=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,copyhistory=no'
-            );
-            
-            // Focus the popup window
-            if (popup) {
-                popup.focus();
-            }
-            
-            // Optional: Track the source for analytics
+            const overlay = document.getElementById('lockerOverlay');
+            const frame = document.getElementById('lockerFrame');
+            const url = LOCKER_URL + (LOCKER_URL.includes('?') ? '&' : '?') + 'src=' + encodeURIComponent(source || 'unknown');
+            frame.src = url;
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
             console.log(`Locker opened from: ${source}`);
         }
+
+        function closeLocker() {
+            const overlay = document.getElementById('lockerOverlay');
+            const frame = document.getElementById('lockerFrame');
+            overlay.classList.remove('show');
+            frame.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on backdrop click
+        document.getElementById('lockerOverlay')?.addEventListener('click', (e) => {
+            if (e.target.id === 'lockerOverlay') closeLocker();
+        });
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLocker();
+        });
 
         // Toggle mobile menu
         function toggleMenu() {
