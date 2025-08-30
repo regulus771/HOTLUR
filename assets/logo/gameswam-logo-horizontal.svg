@@ -1,0 +1,32 @@
+<svg width="1100" height="280" viewBox="0 0 1100 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gw-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8A2BE2"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon -->
+  <g transform="translate(40,40)">
+    <!-- Controller silhouette (composed shape) -->
+    <rect x="54" y="60" rx="40" ry="40" width="172" height="88" fill="url(#gw-grad)"/>
+    <circle cx="84" cy="104" r="50" fill="url(#gw-grad)"/>
+    <circle cx="196" cy="104" r="50" fill="url(#gw-grad)"/>
+
+    <!-- D-pad -->
+    <rect x="66" y="92" width="16" height="48" rx="4" fill="#ffffff" opacity="0.95"/>
+    <rect x="50" y="108" width="48" height="16" rx="4" fill="#ffffff" opacity="0.95"/>
+
+    <!-- Buttons -->
+    <circle cx="196" cy="90" r="9" fill="#ffffff" opacity="0.95"/>
+    <circle cx="214" cy="106" r="9" fill="#ffffff" opacity="0.95"/>
+    <circle cx="178" cy="106" r="9" fill="#ffffff" opacity="0.95"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g font-family="Inter, Poppins, Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="800">
+    <text x="300" y="160" font-size="124" fill="#111827" letter-spacing="1">games</text>
+    <text x="700" y="160" font-size="124" fill="#00E5A8" letter-spacing="1">wam</text>
+  </g>
+</svg>
+
