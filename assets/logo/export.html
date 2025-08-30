@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Games Wam Logo Exporter</title>
+	<style>
+		:root { --bg:#0b1020; --card:#121933; --text:#e6e9f2; --accent:#00E5A8; }
+		* { box-sizing: border-box; }
+		body { margin: 0; padding: 24px; background: var(--bg); color: var(--text); font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+		h1 { font-size: 20px; margin: 0 0 8px; }
+		p { margin: 0 0 16px; opacity: 0.85; }
+		.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+		.card { background: var(--card); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 16px; }
+		.card h2 { font-size: 16px; margin: 0 0 12px; }
+		.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+		button { border: 0; padding: 10px 12px; border-radius: 10px; color: #0b1020; background: var(--text); cursor: pointer; font-weight: 700; }
+		button.secondary { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.15); }
+		.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(0,229,168,0.15); color: var(--accent); font-size: 12px; font-weight: 700; margin-left: 6px; }
+		.preview { background: #0c132b; border: 1px dashed rgba(255,255,255,0.08); border-radius: 10px; padding: 10px; display: grid; place-items: center; min-height: 120px; margin: 8px 0 12px; }
+		.small { opacity: 0.7; font-size: 12px; }
+		.hidden-svg { position: absolute; left: -9999px; top: -9999px; }
+		.row { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0 0; }
+	</style>
+</head>
+<body>
+	<h1>Games Wam Logo Exporter <span class="badge">PNG/JPG</span></h1>
+	<p>Click a size to download. PNG exports are transparent; JPG exports have a white background.</p>
+
+	<div class="grid">
+		<div class="card" id="card-horizontal">
+			<h2>Horizontal</h2>
+			<div class="preview">
+				<svg width="440" height="112" viewBox="0 0 1100 280">
+					<defs>
+						<linearGradient id="gw-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8A2BE2"/><stop offset="100%" stop-color="#4F46E5"/></linearGradient>
+					</defs>
+					<g transform="translate(40,40)">
+						<rect x="54" y="60" rx="40" ry="40" width="172" height="88" fill="url(#gw-grad)"/>
+						<circle cx="84" cy="104" r="50" fill="url(#gw-grad)"/>
+						<circle cx="196" cy="104" r="50" fill="url(#gw-grad)"/>
+						<rect x="66" y="92" width="16" height="48" rx="4" fill="#ffffff" opacity="0.95"/>
+						<rect x="50" y="108" width="48" height="16" rx="4" fill="#ffffff" opacity="0.95"/>
+						<circle cx="196" cy="90" r="9" fill="#ffffff" opacity="0.95"/>
+						<circle cx="214" cy="106" r="9" fill="#ffffff" opacity="0.95"/>
+						<circle cx="178" cy="106" r="9" fill="#ffffff" opacity="0.95"/>
+					</g>
+					<g font-family="Inter, Poppins, Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="800">
+						<text x="300" y="160" font-size="124" fill="#111827" letter-spacing="1">games</text>
+						<text x="700" y="160" font-size="124" fill="#00E5A8" letter-spacing="1">wam</text>
+					</g>
+				</svg>
+			</div>
+			<div class="actions">
+				<button data-kind="horizontal" data-type="png" data-width="2048">PNG 2048w</button>
+				<button data-kind="horizontal" data-type="png" data-width="1024">PNG 1024w</button>
+				<button data-kind="horizontal" data-type="png" data-width="512">PNG 512w</button>
+			</div>
+			<div class="row">
+				<button class="secondary" data-kind="horizontal" data-type="jpg" data-width="2048">JPG 2048w</button>
+				<button class="secondary" data-kind="horizontal" data-type="jpg" data-width="1024">JPG 1024w</button>
+				<button class="secondary" data-kind="horizontal" data-type="jpg" data-width="512">JPG 512w</button>
+			</div>
+		</div>
+
+		<div class="card" id="card-stacked">
+			<h2>Stacked</h2>
+			<div class="preview">
+				<svg width="220" height="220" viewBox="0 0 600 600">
+					<defs>
+						<linearGradient id="gw-grad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8A2BE2"/><stop offset="100%" stop-color="#4F46E5"/></linearGradient>
+					</defs>
+					<g transform="translate(120,120)">
+						<rect x="84" y="140" rx="40" ry="40" width="212" height="108" fill="url(#gw-grad2)"/>
+						<circle cx="120" cy="194" r="60" fill="url(#gw-grad2)"/>
+						<circle cx="260" cy="194" r="60" fill="url(#gw-grad2)"/>
+						<rect x="106" y="178" width="18" height="56" rx="5" fill="#ffffff" opacity="0.95"/>
+						<rect x="88" y="196" width="56" height="18" rx="5" fill="#ffffff" opacity="0.95"/>
+						<circle cx="260" cy="176" r="10" fill="#ffffff" opacity="0.95"/>
+						<circle cx="280" cy="196" r="10" fill="#ffffff" opacity="0.95"/>
+						<circle cx="240" cy="196" r="10" fill="#ffffff" opacity="0.95"/>
+					</g>
+					<g font-family="Inter, Poppins, Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="800" text-anchor="middle">
+						<text x="300" y="420" font-size="110" fill="#111827" letter-spacing="1">games</text>
+						<text x="300" y="520" font-size="110" fill="#00E5A8" letter-spacing="1">wam</text>
+					</g>
+				</svg>
+			</div>
+			<div class="actions">
+				<button data-kind="stacked" data-type="png" data-width="2048">PNG 2048</button>
+				<button data-kind="stacked" data-type="png" data-width="1024">PNG 1024</button>
+				<button data-kind="stacked" data-type="png" data-width="512">PNG 512</button>
+			</div>
+			<div class="row">
+				<button class="secondary" data-kind="stacked" data-type="jpg" data-width="2048">JPG 2048</button>
+				<button class="secondary" data-kind="stacked" data-type="jpg" data-width="1024">JPG 1024</button>
+				<button class="secondary" data-kind="stacked" data-type="jpg" data-width="512">JPG 512</button>
+			</div>
+		</div>
+
+		<div class="card" id="card-icon">
+			<h2>Icon</h2>
+			<div class="preview">
+				<svg width="120" height="120" viewBox="0 0 256 256">
+					<defs>
+						<linearGradient id="gw-grad3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8A2BE2"/><stop offset="100%" stop-color="#4F46E5"/></linearGradient>
+					</defs>
+					<rect x="42" y="96" rx="28" ry="28" width="172" height="64" fill="url(#gw-grad3)"/>
+					<circle cx="66" cy="128" r="40" fill="url(#gw-grad3)"/>
+					<circle cx="190" cy="128" r="40" fill="url(#gw-grad3)"/>
+					<rect x="58" y="116" width="12" height="36" rx="3.5" fill="#ffffff" opacity="0.95"/>
+					<rect x="46" y="128" width="36" height="12" rx="3.5" fill="#ffffff" opacity="0.95"/>
+					<circle cx="190" cy="116" r="7" fill="#ffffff" opacity="0.95"/>
+					<circle cx="204" cy="130" r="7" fill="#ffffff" opacity="0.95"/>
+					<circle cx="176" cy="130" r="7" fill="#ffffff" opacity="0.95"/>
+				</svg>
+			</div>
+			<div class="actions">
+				<button data-kind="icon" data-type="png" data-width="1024">PNG 1024</button>
+				<button data-kind="icon" data-type="png" data-width="512">PNG 512</button>
+				<button data-kind="icon" data-type="png" data-width="256">PNG 256</button>
+			</div>
+			<div class="row">
+				<button class="secondary" data-kind="icon" data-type="jpg" data-width="1024">JPG 1024</button>
+				<button class="secondary" data-kind="icon" data-type="jpg" data-width="512">JPG 512</button>
+				<button class="secondary" data-kind="icon" data-type="jpg" data-width="256">JPG 256</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Hidden full SVGs for serialization -->
+	<div class="hidden-svg" aria-hidden="true">
+		<svg id="svg-horizontal" width="1100" height="280" viewBox="0 0 1100 280" xmlns="http://www.w3.org/2000/svg">
+			<defs><linearGradient id="gw-grad-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8A2BE2"/><stop offset="100%" stop-color="#4F46E5"/></linearGradient></defs>
+			<g transform="translate(40,40)">
+				<rect x="54" y="60" rx="40" ry="40" width="172" height="88" fill="url(#gw-grad-h)"/>
+				<circle cx="84" cy="104" r="50" fill="url(#gw-grad-h)"/>
+				<circle cx="196" cy="104" r="50" fill="url(#gw-grad-h)"/>
+				<rect x="66" y="92" width="16" height="48" rx="4" fill="#ffffff" opacity="0.95"/>
+				<rect x="50" y="108" width="48" height="16" rx="4" fill="#ffffff" opacity="0.95"/>
+				<circle cx="196" cy="90" r="9" fill="#ffffff" opacity="0.95"/>
+				<circle cx="214" cy="106" r="9" fill="#ffffff" opacity="0.95"/>
+				<circle cx="178" cy="106" r="9" fill="#ffffff" opacity="0.95"/>
+			</g>
+			<g font-family="Inter, Poppins, Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="800">
+				<text x="300" y="160" font-size="124" fill="#111827" letter-spacing="1">games</text>
+				<text x="700" y="160" font-size="124" fill="#00E5A8" letter-spacing="1">wam</text>
+			</g>
+		</svg>
+
+		<svg id="svg-stacked" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+			<defs><linearGradient id="gw-grad-s" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8A2BE2"/><stop offset="100%" stop-color="#4F46E5"/></linearGradient></defs>
+			<g transform="translate(120,120)">
+				<rect x="84" y="140" rx="40" ry="40" width="212" height="108" fill="url(#gw-grad-s)"/>
+				<circle cx="120" cy="194" r="60" fill="url(#gw-grad-s)"/>
+				<circle cx="260" cy="194" r="60" fill="url(#gw-grad-s)"/>
+				<rect x="106" y="178" width="18" height="56" rx="5" fill="#ffffff" opacity="0.95"/>
+				<rect x="88" y="196" width="56" height="18" rx="5" fill="#ffffff" opacity="0.95"/>
+				<circle cx="260" cy="176" r="10" fill="#ffffff" opacity="0.95"/>
+				<circle cx="280" cy="196" r="10" fill="#ffffff" opacity="0.95"/>
+				<circle cx="240" cy="196" r="10" fill="#ffffff" opacity="0.95"/>
+			</g>
+			<g font-family="Inter, Poppins, Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="800" text-anchor="middle">
+				<text x="300" y="420" font-size="110" fill="#111827" letter-spacing="1">games</text>
+				<text x="300" y="520" font-size="110" fill="#00E5A8" letter-spacing="1">wam</text>
+			</g>
+		</svg>
+
+		<svg id="svg-icon" width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+			<defs><linearGradient id="gw-grad-i" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8A2BE2"/><stop offset="100%" stop-color="#4F46E5"/></linearGradient></defs>
+			<rect x="42" y="96" rx="28" ry="28" width="172" height="64" fill="url(#gw-grad-i)"/>
+			<circle cx="66" cy="128" r="40" fill="url(#gw-grad-i)"/>
+			<circle cx="190" cy="128" r="40" fill="url(#gw-grad-i)"/>
+			<rect x="58" y="116" width="12" height="36" rx="3.5" fill="#ffffff" opacity="0.95"/>
+			<rect x="46" y="128" width="36" height="12" rx="3.5" fill="#ffffff" opacity="0.95"/>
+			<circle cx="190" cy="116" r="7" fill="#ffffff" opacity="0.95"/>
+			<circle cx="204" cy="130" r="7" fill="#ffffff" opacity="0.95"/>
+			<circle cx="176" cy="130" r="7" fill="#ffffff" opacity="0.95"/>
+		</svg>
+	</div>
+
+	<script>
+		function serializeInlineSvg(svgEl) {
+			const clone = svgEl.cloneNode(true);
+			// Fix gradient ids scoping by making them unique per export
+			const gradientIds = clone.querySelectorAll('linearGradient[id]');
+			gradientIds.forEach((grad) => {
+				grad.id = grad.id + '-' + Math.random().toString(36).slice(2, 7);
+			});
+			clone.querySelectorAll('[fill^="url(#"]').forEach((el) => {
+				const m = el.getAttribute('fill').match(/url\(#(.+)\)/);
+				if (m) {
+					const newId = Array.from(gradientIds).find(g => el.getAttribute('fill').includes(g.id));
+					if (!newId) {
+						const id = gradientIds[0]?.id; if (id) el.setAttribute('fill', `url(#${id})`);
+					}
+				}
+			});
+			const svg = new XMLSerializer().serializeToString(clone);
+			const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+			return URL.createObjectURL(blob);
+		}
+
+		async function renderAndDownload(kind, type, width) {
+			const map = {
+				horizontal: document.getElementById('svg-horizontal'),
+				stacked: document.getElementById('svg-stacked'),
+				icon: document.getElementById('svg-icon')
+			};
+			const svgEl = map[kind];
+			const viewBox = svgEl.getAttribute('viewBox').split(' ').map(Number);
+			const originalWidth = viewBox[2];
+			const originalHeight = viewBox[3];
+			const scale = width / originalWidth;
+			const height = Math.round(originalHeight * scale);
+
+			const url = serializeInlineSvg(svgEl);
+			const img = new Image();
+			img.decoding = 'async';
+			img.crossOrigin = 'anonymous';
+			img.src = url;
+			await img.decode();
+
+			const canvas = document.createElement('canvas');
+			canvas.width = width; canvas.height = height;
+			const ctx = canvas.getContext('2d');
+			if (type === 'jpg') {
+				ctx.fillStyle = '#ffffff';
+				ctx.fillRect(0, 0, width, height);
+			}
+			ctx.drawImage(img, 0, 0, width, height);
+
+			const mime = type === 'png' ? 'image/png' : 'image/jpeg';
+			const quality = type === 'jpg' ? 0.92 : 1.0;
+			const dataUrl = canvas.toDataURL(mime, quality);
+
+			const a = document.createElement('a');
+			a.href = dataUrl;
+			a.download = `gameswam-${kind}-${width}.${type}`;
+			document.body.appendChild(a);
+			a.click();
+			a.remove();
+			URL.revokeObjectURL(url);
+		}
+
+		document.addEventListener('click', (e) => {
+			const target = e.target;
+			if (target.tagName === 'BUTTON' && target.dataset.kind) {
+				const { kind, type } = target.dataset;
+				const width = parseInt(target.dataset.width, 10);
+				renderAndDownload(kind, type, width).catch(console.error);
+			}
+		});
+	</script>
+</body>
+</html>
+
